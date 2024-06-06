@@ -11,17 +11,20 @@ pipeline {
         }
         stage('Testing') {
             steps {
+                sh 'firebase deploy -P selenium-testing-testing --token "$FIREBASE_DEPLOY'
                 echo 'Testing'
                 
             }
         }
         stage('Staging') {
             steps {
+                sh 'firebase deploy -P selenium-testing-staging --token "$FIREBASE_DEPLOY'
                 echo 'Staging'
             }
         }
         stage('Production') {
             steps {
+                sh 'firebase deploy -P selenium-testing-production --token "$FIREBASE_DEPLOY'
                 echo 'Production'
             }
         }
